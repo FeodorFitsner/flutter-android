@@ -3,7 +3,7 @@ image: ubuntu1804
 install:
 - export LANG=en_US.UTF-8
 - curl https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.1-stable.tar.xz -o flutter_linux.tar.xz
-- tar zxf flutter_linux.tar.xz -C $HOME
+- tar -xf flutter_linux.tar.xz -C $HOME
 - export PATH="$PATH:$HOME/flutter/bin"
 - flutter --version
 - flutter doctor

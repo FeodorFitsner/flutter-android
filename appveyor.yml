@@ -13,7 +13,7 @@ install:
 - ANDROID_SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
 - ANDROID_TOOLS_ROOT="/opt/android_sdk"
 - sudo mkdir -p "${ANDROID_TOOLS_ROOT}"
-- 'chown $(id -u):$(id -g) "${ANDROID_TOOLS_ROOT}"'
+- 'sudo chown $(id -u):$(id -g) "${ANDROID_TOOLS_ROOT}"'
 - mkdir -p ~/.android
 # Silence warning.
 - touch ~/.android/repositories.cfg

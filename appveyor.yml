@@ -6,9 +6,6 @@ install:
 - export ANDROID_SDK_ROOT="/usr/lib/android-sdk"
 - sudo mkdir -p "${ANDROID_SDK_ROOT}/cmdline-tools"
 - 'sudo chown -R $(id -u):$(id -g) "${ANDROID_SDK_ROOT}"'
-- mkdir -p ~/.android
-# Silence warning.
-- touch ~/.android/repositories.cfg
 - ANDROID_SDK_ARCHIVE="${ANDROID_SDK_ROOT}/archive"
 - wget --progress=dot:giga "${ANDROID_SDK_URL}" -O "${ANDROID_SDK_ARCHIVE}"
 - unzip -q -d "${ANDROID_SDK_ROOT}/cmdline-tools" "${ANDROID_SDK_ARCHIVE}"
@@ -38,11 +35,7 @@ install:
 - export PATH="$PATH:$HOME/flutter/bin"
 - flutter --version
 - yes "y" | flutter doctor --android-licenses > /dev/null
-- flutter doctor
-
-# Silence warnings when accepting android licenses.
-- mkdir -p ~/.android
-- touch ~/.android/repositories.cfg
+- flutter doctor -v
 
 build: off
 test: off

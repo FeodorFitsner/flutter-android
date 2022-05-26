@@ -24,6 +24,9 @@ install:
 - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
 # Suppressing output of sdkmanager to keep log size down
 # (it prints install progress WAY too often).
+- which sdkmanager
+- java --version
+- echo $JAVA_HOME
 - sdkmanager --version
 - echo y | sdkmanager "tools" > /dev/null
 - echo y | sdkmanager "build-tools;28.0.3" > /dev/null

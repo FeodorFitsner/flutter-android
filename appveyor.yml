@@ -37,5 +37,10 @@ install:
 - yes "y" | flutter doctor --android-licenses > /dev/null
 - flutter doctor -v
 
+# Try building something
+- git clone --branch=s1 https://github.com/flet-dev/flet
+- cd flet/client
+- flutter build appbundle
+
 build: off
 test: off

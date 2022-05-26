@@ -1,4 +1,4 @@
-image: ubuntu-1804
+image: ubuntu1804
 
 install:
 - export LANG=en_US.UTF-8

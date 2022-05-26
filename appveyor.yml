@@ -1,12 +1,26 @@
 image: ubuntu1804
 
 install:
+# Install Flutter SDK
 - export LANG=en_US.UTF-8
 - curl https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.0.1-stable.tar.xz -o flutter_linux.tar.xz
 - tar -xf flutter_linux.tar.xz -C $HOME
 - export PATH="$PATH:$HOME/flutter/bin"
 - flutter --version
-- flutter doctor
+#- flutter doctor
+
+# Install Android SDK
+- ANDROID_SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
+- ANDROID_TOOLS_ROOT="/opt/android_sdk"
+- mkdir -p "${ANDROID_TOOLS_ROOT}"
+- mkdir -p ~/.android
+# Silence warning.
+- touch ~/.android/repositories.cfg
+- ANDROID_SDK_ARCHIVE="${ANDROID_TOOLS_ROOT}/archive"
+- wget --progress=dot:giga "${ANDROID_SDK_URL}" -O "${ANDROID_SDK_ARCHIVE}"
+- unzip -q -d "${ANDROID_TOOLS_ROOT}" "${ANDROID_SDK_ARCHIVE}"
+# Suppressing output of sdkmanager to keep log size down
+# (it prints install progress WAY too often).
 
 build: off
 test: off

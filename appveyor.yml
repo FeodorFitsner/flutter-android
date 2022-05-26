@@ -24,7 +24,8 @@ install:
 - PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/cmdline-tools/tools/bin
 # Suppressing output of sdkmanager to keep log size down
 # (it prints install progress WAY too often).
-- which sdkmanager
+- export JAVA_HOME=$JAVA_HOME_15_X64
+- export PATH=$JAVA_HOME/bin:$PATH
 - java --version
 - echo $JAVA_HOME
 - sdkmanager --version

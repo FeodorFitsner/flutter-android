@@ -37,6 +37,7 @@ install:
 - tar -xf flutter_linux.tar.xz -C $HOME
 - export PATH="$PATH:$HOME/flutter/bin"
 - flutter --version
+- echo y | flutter doctor --android-licenses
 - flutter doctor
 
 # Silence warnings when accepting android licenses.

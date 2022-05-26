@@ -20,12 +20,13 @@ install:
 - ANDROID_SDK_ARCHIVE="${ANDROID_TOOLS_ROOT}/archive"
 - wget --progress=dot:giga "${ANDROID_SDK_URL}" -O "${ANDROID_SDK_ARCHIVE}"
 - unzip -q -d "${ANDROID_TOOLS_ROOT}" "${ANDROID_SDK_ARCHIVE}"
+- mv "${ANDROID_TOOLS_ROOT}/cmdline-tools" "${ANDROID_TOOLS_ROOT}/tools"
 # Suppressing output of sdkmanager to keep log size down
 # (it prints install progress WAY too often).
-- yes "y" | "${ANDROID_TOOLS_ROOT}/cmdline-tools/bin/sdkmanager" "tools" > /dev/null
-- yes "y" | "${ANDROID_TOOLS_ROOT}/cmdline-tools/bin/sdkmanager" "build-tools;28.0.3" > /dev/null
+- echo y | "${ANDROID_TOOLS_ROOT}/tools/bin/sdkmanager" "tools" > /dev/null
+- echo y | "${ANDROID_TOOLS_ROOT}/tools/bin/sdkmanager" "build-tools;28.0.3" > /dev/null
 - rm "${ANDROID_SDK_ARCHIVE}"
-- PATH="${ANDROID_TOOLS_ROOT}/cmdline-tools/bin:${PATH}"
+- PATH="${ANDROID_TOOLS_ROOT}/tools/bin:${PATH}"
 
 # Silence warnings when accepting android licenses.
 - mkdir -p ~/.android

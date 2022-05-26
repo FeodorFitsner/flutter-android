@@ -21,14 +21,14 @@ install:
 - java --version
 - echo $JAVA_HOME
 - sdkmanager --version
-- yes "y" | sdkmanager "tools" > /dev/null
-- yes "y" | sdkmanager "build-tools;28.0.3" > /dev/null
-- yes "y" | sdkmanager "platforms;android-30" > /dev/null
-- yes "y" | sdkmanager "platform-tools" > /dev/null
-- yes "y" | sdkmanager "cmdline-tools;latest" > /dev/null
-- yes "y" | sdkmanager "extras;android;m2repository" > /dev/null
-- yes "y" | sdkmanager "extras;google;m2repository" > /dev/null
-- yes "y" | sdkmanager "patcher;v4" > /dev/null
+- echo "y" | sdkmanager "tools" > /dev/null
+- echo "y" | sdkmanager "build-tools;28.0.3" > /dev/null
+- echo "y" | sdkmanager "platforms;android-30" > /dev/null
+- echo "y" | sdkmanager "platform-tools" > /dev/null
+- echo "y" | sdkmanager "cmdline-tools;latest" > /dev/null
+- echo "y" | sdkmanager "extras;android;m2repository" > /dev/null
+- echo "y" | sdkmanager "extras;google;m2repository" > /dev/null
+- echo "y" | sdkmanager "patcher;v4" > /dev/null
 - rm "${ANDROID_SDK_ARCHIVE}"
 
 # Install Flutter SDK
@@ -37,7 +37,7 @@ install:
 - tar -xf flutter_linux.tar.xz -C $HOME
 - export PATH="$PATH:$HOME/flutter/bin"
 - flutter --version
-- yes "y" | flutter doctor --android-licenses
+- yes "y" | flutter doctor --android-licenses > /dev/null
 - flutter doctor
 
 # Silence warnings when accepting android licenses.

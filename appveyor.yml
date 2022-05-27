@@ -1,6 +1,8 @@
 image: ubuntu1804
 
 install:
+# Install GTK 3
+- sudo apt install -y libgtk-3-dev
 # Install Android SDK
 - ANDROID_SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
 - export ANDROID_SDK_ROOT="/usr/lib/android-sdk"

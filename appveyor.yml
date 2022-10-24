@@ -5,6 +5,8 @@ install:
 - sudo apt-get update
 - sudo apt-get install -y libgtk-3-dev
 
+- java --version
+
 # Install Android SDK
 - ANDROID_SDK_URL="https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
 - export ANDROID_SDK_ROOT="/usr/lib/android-sdk"
